@@ -1,0 +1,59 @@
+* {
+  margin: 20px;
+  padding: 10px;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.error {
+  background-color: lightcoral;
+  border: red;
+}
+
+h1 {
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  border: 5px solid purple;
+  border-radius: 100px;
+  padding: 20px;
+  background-color: bisque;
+  /* margin: 50px; */
+  width: fit-content;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+#typed-value {
+  background-color: lightgray;
+  width: 30%;
+  /* padding: 1rem; */
+  border: 2px solid transparent;
+  /* margin: 1rem; */
+  border-radius: 10px;
+}
+
+#start {
+  width: 3rem;
+  height: 1.5rem;
+  /* margin: 1rem;
+  padding: 1rem; */
+}
+
+#message {
+  display: inline-block;
+  width: 150px;
+  height: 20px;
+  /* margin: 10px;
+  padding: 10px; */
+  background-color: lightgray;
+}
+
+#quote {
+  background-color: lightgray;
+  width: fit-content;
+  height: fit-content;
+}
