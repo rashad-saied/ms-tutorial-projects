@@ -40,8 +40,8 @@ console.log(hero);
 
 const tree = new Tree();
 console.log(tree);
-*/
 
+*/
 // Inheritance using Composition
 
 const gameObject = {
@@ -80,8 +80,71 @@ const createStatic = function (x, y, type) {
   };
 };
 
-const hero = createHero();
-hero.moveTo(5, 5);
+const hero1 = createHero();
+hero1.moveTo(5, 5);
 
 const tree = createStatic(0, 0, "Tree");
-console.log(hero, tree);
+
+// Pub/Sub pattern or Event Emitter design pattern
+
+class EventEmitter {
+  constructor() {
+    this.listeners = {};
+  }
+
+  on(message, listener) {
+    if (!this.listeners[message]) {
+      this.listeners[message] = [];
+    }
+
+    this.listeners[message].push(listener);
+  }
+
+  emit(message, payload = null) {
+    if (this.listeners[message]) {
+      this.listeners[message].forEach((listener) => listener(message, payload));
+    }
+  }
+}
+
+const Messages = {
+  HERO_MOVE_LEFT: "HERO_MOVE_LEFT",
+};
+
+const eventEmitNo1 = new EventEmitter();
+
+console.log(eventEmitNo1);
+
+const hero = new createHero(0, 0);
+
+eventEmitNo1.on(Messages.HERO_MOVE_LEFT, () => hero.moveTo(5, 0));
+
+document.addEventListener("keyup", (evt) => {
+  if (evt.key === "ArrowLeft") {
+    eventEmitNo1.emit(Messages.HERO_MOVE_LEFT);
+  }
+  console.log(evt);
+});
+
+// another example :
+
+const listener = (evt, payload) => {
+  switch (evt) {
+    case "login":
+      console.log(`User ${payload.username} has logged in`);
+      break;
+    case "logout":
+      console.log(`User ${payload.username} has logged out`);
+      break;
+    default:
+      break;
+  }
+};
+
+const logEvent = new EventEmitter();
+
+logEvent.on("login", listener);
+logEvent.on("logout", listener);
+
+logEvent.emit("login", { username: "rashad" });
+logEvent.emit("logout", { username: "mohamed" });
