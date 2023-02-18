@@ -41,7 +41,7 @@ console.log(hero);
 const tree = new Tree();
 console.log(tree);
 
-*/
+
 // Inheritance using Composition
 
 const gameObject = {
@@ -148,3 +148,21 @@ logEvent.on("logout", listener);
 
 logEvent.emit("login", { username: "rashad" });
 logEvent.emit("logout", { username: "mohamed" });
+
+let canvas = document.getElementById("myCanvas");
+
+let ctx = canvas.getContext("2d");
+
+ctx.fillStyle = "red";
+
+ctx.fillRect(0, 0, 200, 200);
+*/
+
+function getDomainNameFromURL(url) {
+  const domainURL = new URL(url);
+  return domainURL.hostname;
+}
+
+getDomainNameFromURL(
+  "https://www.coursera.org/learn/html-and-css-in-depth/home/week/1"
+);
